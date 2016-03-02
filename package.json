@@ -10,6 +10,7 @@
   "author": "Emile Nijssen @ Athom BV",
   "license": "ISC",
   "dependencies": {
+    "athom-api": "^1.0.4",
     "body-parser": "^1.12.4",
     "colors": "^1.1.0",
     "commander": "^2.8.1",

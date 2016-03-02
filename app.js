@@ -5,17 +5,41 @@ var path		= require('path');
 
 var program		= require('commander');
 var colors		= require('colors');
+var request		= require('request');
+var Api			= require('athom-api');
 
 var lib = global.lib = {
 	settings	: require('./lib/settings'),
 	user		: require('./lib/user'),
-	api			: require('./lib/api'),
 	homey		: require('./lib/homey'),
 	project		: require('./lib/project'),
 	ledring		: require('./lib/ledring')
 }
+
+// Initialize API
+var api = global.api = new Api({}, global.settings.token);
  
+// Get package info
 var pjson = require( path.join(__dirname, 'package.json') );
+
+// Check if latest version
+if( global.settings.updateAvailable ) {
+	console.log(("There is an update available! Run `npm install -g " + pjson.name + "` to update.").yellow.italic);
+} else if(
+	!(global.settings.updateAvailableLastChecked instanceof Date) ||
+	(new Date) - global.settings.updateAvailableLastChecked < 1000 * 60 * 60
+) {
+
+	request({
+		url	: 'http://registry.npmjs.org/' + pjson.name + '/latest',
+		json: true
+	}, function(err, result, body){
+		if( err ) return;
+		if( body.version != pjson.version ) global.settings.updateAvailable = true;
+		global.settings.updateAvailableLastChecked = new Date();
+	})
+
+}
 
 program
 	.version(pjson.version)

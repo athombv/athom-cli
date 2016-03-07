@@ -6,8 +6,10 @@ var path		= require('path');
 var program		= require('commander');
 var colors		= require('colors');
 var request		= require('request');
+var semver		= require('semver');
 var Api			= require('athom-api');
 
+// Initialize lib
 var lib = global.lib = {
 	settings	: require('./lib/settings'),
 	user		: require('./lib/user'),
@@ -16,18 +18,34 @@ var lib = global.lib = {
 	ledring		: require('./lib/ledring')
 }
 
+// Initialize config
+var config = global.config = require('./config.json');
+
 // Initialize API
-var api = global.api = new Api({}, global.settings.token);
+var api = global.api = new Api({
+	client_id		: global.config.ATHOM_API_CLIENT_ID,
+	client_secret	: global.config.ATHOM_API_CLIENT_SECRET
+}, global.settings.token);
  
 // Get package info
 var pjson = require( path.join(__dirname, 'package.json') );
 
 // Check if latest version
+// if updated, remove
+if( global.settings.updateAvailable  && semver.gte( pjson.version, global.settings.updateAvailable ) ) {
+	delete global.settings.updateAvailable;
+	delete global.settings.updateAvailableLastChecked;
+}
+
+if( global.settings.updateAvailableLastChecked ) {
+	global.settings.updateAvailableLastChecked = new Date(global.settings.updateAvailableLastChecked);
+}
+
 if( global.settings.updateAvailable ) {
 	console.log(("There is an update available! Run `npm install -g " + pjson.name + "` to update.").yellow.italic);
 } else if(
-	!(global.settings.updateAvailableLastChecked instanceof Date) ||
-	(new Date) - global.settings.updateAvailableLastChecked < 1000 * 60 * 60
+	!global.settings.updateAvailableLastChecked ||
+	!((new Date) - global.settings.updateAvailableLastChecked < 1000 * 60 * 60)
 ) {
 
 	request({
@@ -35,7 +53,9 @@ if( global.settings.updateAvailable ) {
 		json: true
 	}, function(err, result, body){
 		if( err ) return;
-		if( body.version != pjson.version ) global.settings.updateAvailable = true;
+		if( semver.gt(body.version, pjson.version ) ) {
+			global.settings.updateAvailable = body.version;
+		}
 		global.settings.updateAvailableLastChecked = new Date();
 	})
 

@@ -26,6 +26,11 @@ var api = global.api = new Api({
 	client_id		: global.config.ATHOM_API_CLIENT_ID,
 	client_secret	: global.config.ATHOM_API_CLIENT_SECRET
 }, global.settings.token);
+
+// save token whenr refreshed
+api.on('refresh', function(token){
+	global.settings.token = token;
+})
  
 // Get package info
 var pjson = require( path.join(__dirname, 'package.json') );

@@ -31,7 +31,7 @@ var api = global.api = new Api({
 api.on('refresh', function(token){
 	global.settings.token = token;
 })
- 
+
 // Get package info
 var pjson = require( path.join(__dirname, 'package.json') );
 
@@ -68,7 +68,7 @@ if( global.settings.updateAvailable ) {
 
 program
 	.version(pjson.version)
-	
+
 program
 	.command('login')
 	.description('login to your Athom account')
@@ -77,7 +77,7 @@ program
 			setTimeout(process.exit, 1000);
 		});
 	})
-	
+
 program
 	.command('logout')
 	.description('logout of your Athom account')
@@ -98,7 +98,7 @@ program
 		if( options.validate )					lib.project.validate(options.validate);
 		if( options.validateAppStore )			lib.project.validateAppStore(options.validateAppStore);
 	})
-	
+
 program
 	.command('homey')
 	.description('run `athom homey --help` to view homey commands')
@@ -107,12 +107,12 @@ program
 	.option('--select', 'select active Homey')
 	.option('--unselect', 'clear active Homey')
 	.action(function(options){
-		if( options.list )			lib.homey.list();
-		if( options.listLocal )		lib.homey.listLocal();
+		if( options.list )			lib.homey.list( true );
+		if( options.listLocal )		lib.homey.listLocal( true );
 		if( options.select )		lib.homey.select(true);
 		if( options.unselect )		lib.homey.unselect();
 	})
-	
+
 program
 	.command('ledring')
 	.description('run `athom ledring --help` to view homey commands')
@@ -120,10 +120,10 @@ program
 	.action(function(options){
 		if( options.run )		lib.ledring.run(options.run);
 	})
-	
+
 program
 	.parse(process.argv);
-	
+
 if (!process.argv.slice(2).length) {
 	program.outputHelp();
 }

@@ -88,12 +88,14 @@ program
 	.description('run `athom project --help` to view homey commands')
 	.option('--create [path]', "create a new Homey app")
 	.option('--run [path]', "run a Homey app")
+	.option('--run-clean [path]', "run a Homey app without previous settings")
 	.option('--install [path]', "install a Homey app")
 	.option('--validate [path]', "validate a Homey app")
 	.option('--validate-app-store [path]', "validate a Homey app")
 	.action(function(options){
 		if( options.create )					lib.project.create(options.create);
 		if( options.run )						lib.project.run(options.run);
+		if( options.runClean )					lib.project.runClean(options.run);
 		if( options.install )					lib.project.install(options.install);
 		if( options.validate )					lib.project.validate(options.validate);
 		if( options.validateAppStore )			lib.project.validateAppStore(options.validateAppStore);

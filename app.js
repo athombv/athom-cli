@@ -58,10 +58,15 @@ if( global.settings.updateAvailable ) {
 		json: true
 	}, function(err, result, body){
 		if( err ) return;
-		if( semver.gt(body.version, pjson.version ) ) {
-			global.settings.updateAvailable = body.version;
+
+		try {
+			if( semver.gt(body.version, pjson.version ) ) {
+				global.settings.updateAvailable = body.version;
+			}
+			global.settings.updateAvailableLastChecked = new Date();
+		} catch( err ) {
+
 		}
-		global.settings.updateAvailableLastChecked = new Date();
 	})
 
 }

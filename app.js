@@ -71,6 +71,35 @@ if( global.settings.updateAvailable ) {
 
 }
 
+// Check if message from Athom
+if( global.settings.messageAvailableLastChecked ) {
+	global.settings.messageAvailableLastChecked = new Date(global.settings.messageAvailableLastChecked);
+}
+
+if( global.settings.messageAvailable ) {
+	console.log((global.settings.messageAvailable).cyan.italic);
+} else if(
+	!global.settings.messageAvailableLastChecked ||
+	!((new Date) - global.settings.messageAvailableLastChecked < 1000 * 60 * 60)
+) {
+
+	request({
+		url	: 'https://homey-static.athom.com/etc/athom-cli.json',
+		json: true
+	}, function(err, result, body){
+		if( err ) return;
+
+		if( body.message ) {
+			global.settings.messageAvailable = body.message;
+		} else {
+			global.settings.messageAvailable = false;
+		}
+
+		global.settings.messageAvailableLastChecked = new Date();
+	})
+
+}
+
 program
 	.version(pjson.version)
 

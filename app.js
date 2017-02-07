@@ -81,7 +81,6 @@ if(
 		url	: 'https://homey-static.athom.com/etc/athom-cli.json',
 		json: true
 	}, function(err, result, body){
-		console.log(err, body)
 		if( err ) return;
 
 		if( body && body.message ) {

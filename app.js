@@ -37,20 +37,16 @@ var pjson = require( path.join(__dirname, 'package.json') );
 
 // Check if latest version
 // if updated, remove
-if( global.settings.updateAvailable  && semver.gte( pjson.version, global.settings.updateAvailable ) ) {
+if( global.settings.updateAvailable && semver.gte( pjson.version, global.settings.updateAvailable ) ) {
 	delete global.settings.updateAvailable;
 	delete global.settings.updateAvailableLastChecked;
-}
-
-if( global.settings.updateAvailableLastChecked ) {
-	global.settings.updateAvailableLastChecked = new Date(global.settings.updateAvailableLastChecked);
 }
 
 if( global.settings.updateAvailable ) {
 	console.log(("There is an update available! Run `npm install -g " + pjson.name + "` to update.").yellow.italic);
 } else if(
 	!global.settings.updateAvailableLastChecked ||
-	!((new Date) - global.settings.updateAvailableLastChecked < 1000 * 60 * 60)
+	!((new Date) - new Date(global.settings.updateAvailableLastChecked) < 1000 * 60 * 60)
 ) {
 
 	request({
@@ -72,24 +68,23 @@ if( global.settings.updateAvailable ) {
 }
 
 // Check if message from Athom
-if( global.settings.messageAvailableLastChecked ) {
-	global.settings.messageAvailableLastChecked = new Date(global.settings.messageAvailableLastChecked);
-}
-
 if( global.settings.messageAvailable ) {
 	console.log((global.settings.messageAvailable).cyan.italic);
-} else if(
+}
+
+if(
 	!global.settings.messageAvailableLastChecked ||
-	!((new Date) - global.settings.messageAvailableLastChecked < 1000 * 60 * 60)
+	!((new Date) - new Date(global.settings.messageAvailableLastChecked) < 1000 * 60 * 60)
 ) {
 
 	request({
 		url	: 'https://homey-static.athom.com/etc/athom-cli.json',
 		json: true
 	}, function(err, result, body){
+		console.log(err, body)
 		if( err ) return;
 
-		if( body.message ) {
+		if( body && body.message ) {
 			global.settings.messageAvailable = body.message;
 		} else {
 			global.settings.messageAvailable = false;

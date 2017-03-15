@@ -78,7 +78,7 @@ if(
 ) {
 
 	request({
-		url	: 'https://homey-static.athom.com/etc/athom-cli.json',
+		url	: 'https://etc.athom.com/athom-cli.json',
 		json: true
 	}, function(err, result, body){
 		if( err ) return;

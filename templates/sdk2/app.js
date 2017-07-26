@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 
-class MyApp extends Homey.HomeyApp {
+class MyApp extends Homey.App {
 	
 	onInit() {
 		

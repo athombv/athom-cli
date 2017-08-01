@@ -113,7 +113,7 @@ program
 
 program
 	.command('project')
-	.description('run `athom project --help` to view homey commands')
+	.description('run `athom project --help` to view project commands')
 	.option('--create [path]', "create a new Homey app")
 	.option('--run [path]', "run a Homey app")
 	.option('--run-clean [path]', "run a Homey app without previous settings")
@@ -145,7 +145,7 @@ program
 
 program
 	.command('ledring')
-	.description('run `athom ledring --help` to view homey commands')
+	.description('run `athom ledring --help` to view ledring commands')
 	.option('--run [path]', "run a ledring animation app")
 	.action(function(options){
 		if( options.run )		lib.ledring.run(options.run);

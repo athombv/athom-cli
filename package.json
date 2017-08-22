@@ -35,5 +35,9 @@
   "engineStrict": true,
   "bin": {
     "athom": "bin/athom"
+  },
+  "config": {
+    "npmPublishTagProduction": "latest",
+    "npmPublishTagStaging": "beta"
   }
 }

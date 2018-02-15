@@ -30,6 +30,7 @@
     "gitignore-parser": "0.0.2",
     "homey-lib": "^2.0.0",
     "inquirer": "^5.1.0",
+    "semver": "^5.5.0",
     "tar-fs": "^1.16.0",
     "tmp-promise": "^1.0.4",
     "underscore": "^1.8.3"

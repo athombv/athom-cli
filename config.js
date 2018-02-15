@@ -5,5 +5,4 @@ module.exports = {
 	athomApiClientSecret: 'ba93fc861b204732607169fb29c2708f1da7e17f',
 	athomApiLoginUrl: 'https://go.athom.com/cli-login',
 	athomMessageUrl: 'https://go.athom.com/cli-message',
-	athomMessageUrl: 'https://etc.athom.com/athom-cli.json', // TODO
 }

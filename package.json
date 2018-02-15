@@ -37,5 +37,9 @@
     "underscore": "^1.8.3",
     "update-notifier": "^2.3.0",
     "yargs": "^11.0.0"
+  },
+  "config": {
+    "npmPublishTagTesting": "beta",
+    "nodeVersion": "8"
   }
 }

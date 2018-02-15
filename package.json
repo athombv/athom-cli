@@ -26,7 +26,6 @@
     "athom-api": "^2.0.99",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
-    "commander": "^2.14.1",
     "fetch": "^1.1.0",
     "gitignore-parser": "0.0.2",
     "homey-lib": "^2.0.0",
@@ -36,6 +35,7 @@
     "tar-fs": "^1.16.0",
     "tmp-promise": "^1.0.4",
     "underscore": "^1.8.3",
-    "update-notifier": "^2.3.0"
+    "update-notifier": "^2.3.0",
+    "yargs": "^11.0.0"
   }
 }

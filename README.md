@@ -5,7 +5,7 @@ This is the Command Line Interface for Homey App Development.
 ## Installation
 
 ```bash
-$ npm install -g athom-cli@2
+$ npm install -g athom-cli
 ```
 
 ## Usage

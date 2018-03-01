@@ -1,34 +1,47 @@
 # Athom CLI
 
-This package enables you to **create** and **run** Homey apps from the command line.
+This is the Command Line Interface for Homey App Development.
 
-Install it globally on your system (might require sudo):
+## Installation
 
-`$ npm install -g athom-cli`
+```bash
+$ npm install -g athom-cli@2
+```
 
 ## Usage
-**Login first:**
 
-`$ athom login`
+```bash
+$ athom --help
+athom <command>
 
-**Create a new app**
+Commands:
+  athom app      App related commands
+  athom homey    Homey related commands
+  athom ledring  LED ring related commands
+  athom login    Log in with an Athom Account
+  athom logout   Log out the current user
 
-`$ athom project --create`
+Options:
+  --version  Show version number
+  --help     Show help
+```
 
-**Run the new app** *(from within your app folder)*
+### Examples
 
-`$ athom project --run`
+```bash
+$ athom login
 
-**View your Homeys**
+$ athom app create
 
-`$ athom homey --list`
+$ athom app validate
+$ athom app validate --level appstore
 
-**Select a single Homey as active**
+$ athom app run
+$ athom app run --clean
+$ athom app run --path /path/to/my/app/folder
+$ athom app install
 
-*Your active Homey will automatically be used for running apps*
-
-`$ athom homey --select`
-
-**See what else is possible:**
-
-`$ athom --help`
+$ athom homey list
+$ athom homey select
+$ athom homey unselect
+```

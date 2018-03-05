@@ -9,6 +9,9 @@
   "bin": {
     "athom": "bin/athom.js"
   },
+  "engines": {
+    "node": ">=8.5.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/athombv/node-athom-cli.git"

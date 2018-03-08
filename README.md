@@ -60,17 +60,17 @@ For documentation, refer to [AppPluginCompose](lib/AppPluginCompose/index.js).
 ### Z-Wave
 The `zwave` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-meshdriver).
 
-For documentation, refer to [AppPluginCompose](lib/AppPluginZwave/index.js).
+For documentation, refer to [AppPluginZwave](lib/AppPluginZwave/index.js).
 
 ### Zigbee
 The `zigbee` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-meshdriver).
 
-For documentation, refer to [AppPluginCompose](lib/AppPluginZigbee/index.js).
+For documentation, refer to [AppPluginZigbee](lib/AppPluginZigbee/index.js).
 
 ### RF
 The `rf` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-rfdriver), and copies pairing templates to `/.homeycompose/`.
 
-For documentation, refer to [AppPluginCompose](lib/AppPluginRF/index.js).
+For documentation, refer to [AppPluginRF](lib/AppPluginRF/index.js).
 
 
 

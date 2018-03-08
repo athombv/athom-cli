@@ -41,6 +41,8 @@ $ athom app run --clean
 $ athom app run --path /path/to/my/app/folder
 $ athom app install
 
+$ athom app build
+
 $ athom homey list
 $ athom homey select
 $ athom homey unselect

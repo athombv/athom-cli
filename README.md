@@ -41,7 +41,39 @@ $ athom app run --clean
 $ athom app run --path /path/to/my/app/folder
 $ athom app install
 
+$ athom app build
+
+$ athom app driver create
+
 $ athom homey list
 $ athom homey select
 $ athom homey unselect
 ```
+
+## Plugins
+
+Athom CLI ships with built-in plugins to make the development workflow easier. Plugins must be defined in `/.homeyplugins.json` in your app's root, and are executed in order.
+
+### Compose
+The `compose` plugin copies & merges files, which is useful for very large Homey Apps.
+
+For documentation, refer to [AppPluginCompose](lib/AppPluginCompose/index.js).
+
+### Z-Wave
+The `zwave` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-meshdriver).
+
+For documentation, refer to [AppPluginZwave](lib/AppPluginZwave/index.js).
+
+### Zigbee
+The `zigbee` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-meshdriver).
+
+For documentation, refer to [AppPluginZigbee](lib/AppPluginZigbee/index.js).
+
+### RF
+The `rf` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-rfdriver), and copies pairing templates to `/.homeycompose/`.
+
+For documentation, refer to [AppPluginRF](lib/AppPluginRF/index.js).
+
+
+
+

@@ -43,6 +43,8 @@ $ athom app install
 
 $ athom app build
 
+$ athom app driver create
+
 $ athom homey list
 $ athom homey select
 $ athom homey unselect

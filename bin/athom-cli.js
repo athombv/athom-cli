@@ -8,7 +8,9 @@ const AthomMessage = require('..').AthomMessage;
 (async () => {
 	
 	await AthomMessage.notify();
-	updateNotifier({ pkg }).notify();
+	updateNotifier({ pkg }).notify({
+		isGlobal: true,
+	});
 	
 	yargs
 		.commandDir('./cmds')

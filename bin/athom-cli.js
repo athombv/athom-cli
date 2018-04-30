@@ -15,6 +15,7 @@ const AthomMessage = require('..').AthomMessage;
 	yargs
 		.commandDir('./cmds')
 		.demandCommand()
+		.strict()
 		.help()	
 		.argv;
 

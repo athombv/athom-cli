@@ -40,7 +40,7 @@ $ athom app run
 $ athom app run --clean
 $ athom app run --path /path/to/my/app/folder
 $ athom app install
-
+$ athom app version patch
 $ athom app build
 
 $ athom app driver create

@@ -70,7 +70,7 @@ The `zigbee` plugin installs [homey-meshdriver](https://www.npmjs.com/package/ho
 For documentation, refer to [AppPluginZigbee](lib/AppPluginZigbee/index.js).
 
 ### RF
-The `rf` plugin installs [homey-meshdriver](https://www.npmjs.com/package/homey-rfdriver), and copies pairing templates to `/.homeycompose/`.
+The `rf` plugin installs [homey-rfdriver](https://www.npmjs.com/package/homey-rfdriver), and copies pairing templates to `/.homeycompose/`.
 
 For documentation, refer to [AppPluginRF](lib/AppPluginRF/index.js).
 

@@ -4,6 +4,7 @@
   "description": "Command-line interface for Homey Apps",
   "main": "index.js",
   "scripts": {
+    "build": "npm install -E --save homey-lib@latest; if ! git diff --no-ext-diff --exit-code --quiet; then git add -A && git commit -m 'Update homey-lib [ci skip]'; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {

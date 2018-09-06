@@ -7,15 +7,16 @@ const colors = require('colors');
 
 exports.desc = 'List all Homeys';
 exports.handler = async () => {
-	
+
 	try {
 		let homeys = await AthomApi.getHomeys();
-		
+
 		let table = new Table({
 			head: [
 				'ID',
 				'Name',
 				'Version',
+				'API',
 				'Language',
 				'State',
 				'Users',
@@ -23,16 +24,17 @@ exports.handler = async () => {
 				'USB',
 			].map( title => colors.white.bold(title) ),
 		});
-		
+
 		homeys.sort(( a, b ) => {
 			return -(a.state || '').localeCompare( (b.state || '') );
 		})
-		
-		homeys.forEach(homey => {						
+
+		homeys.forEach(homey => {
 			table.push([
 				homey._id,
 				homey.name,
 				homey.softwareVersion,
+				homey.apiVersion,
 				homey.language,
 				AthomApi.getFormattedState( homey ),
 				homey.users && homey.users.length,
@@ -40,7 +42,7 @@ exports.handler = async () => {
 				homey.usb ? 'Yes' : '-',
 			].map( value => value || '-' ))
 		})
-		
+
 		Log(table.toString());
 	} catch( err ) {
 		Log(err);

@@ -18,6 +18,7 @@ exports.handler = async yargs => {
 
 	try {
 		let app = new App( yargs.path );
+		await app.preprocess();
 		await app.validate({
 			level: yargs.level,
 		});

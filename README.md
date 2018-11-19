@@ -74,6 +74,11 @@ The `rf` plugin installs [homey-rfdriver](https://www.npmjs.com/package/homey-rf
 
 For documentation, refer to [AppPluginRF](lib/AppPluginRF/index.js).
 
+### Log
+The `log` plugin installs [homey-log](https://www.npmjs.com/package/homey-log). You must still require the module in the app yourself:
 
+```
+const { Log } = require('homey-log');
+```
 
-
+Don't forget to add the `HOMEY_LOG_URL` variable to your `env.json`.

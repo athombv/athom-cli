@@ -37,7 +37,7 @@
     "filesize": "^3.6.1",
     "fs-extra": "^5.0.0",
     "gitignore-parser": "0.0.2",
-    "homey-lib": "2.3.10",
+    "homey-lib": "2.3.11",
     "inquirer": "^5.1.0",
     "monitorctrlc": "^2.0.1",
     "node-fetch": "^2.1.1",

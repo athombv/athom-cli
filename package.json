@@ -1,6 +1,6 @@
 {
   "name": "athom-cli",
-  "version": "2.1.42",
+  "version": "2.1.58",
   "description": "Command-line interface for Homey Apps",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "filesize": "^3.6.1",
     "fs-extra": "^5.0.0",
     "gitignore-parser": "0.0.2",
-    "homey-lib": "2.3.3",
+    "homey-lib": "2.3.12",
     "inquirer": "^5.1.0",
     "monitorctrlc": "^2.0.1",
     "node-fetch": "^2.1.1",

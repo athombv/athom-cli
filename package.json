@@ -1,13 +1,18 @@
 {
   "name": "athom-cli",
-  "version": "2.1.2",
+  "version": "2.1.73",
   "description": "Command-line interface for Homey Apps",
   "main": "index.js",
   "scripts": {
+    "build": "npm install -E --save homey-lib@latest; if ! git diff --no-ext-diff --exit-code --quiet; then git add -A && git commit -m 'Update homey-lib [ci skip]'; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "athom": "bin/athom.js"
+    "athom": "bin/athom.js",
+    "athom-cli": "bin/athom-cli-warning.js"
+  },
+  "engines": {
+    "node": ">=8.5.0"
   },
   "repository": {
     "type": "git",
@@ -23,14 +28,22 @@
   },
   "homepage": "https://github.com/athombv/node-athom-cli#readme",
   "dependencies": {
-    "athom-api": "^2.0.104",
+    "athom-api": "^2.1.156",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
+    "deepmerge": "^2.1.0",
+    "express": "^4.16.4",
+    "figures": "^2.0.0",
+    "filesize": "^3.6.1",
+    "fs-extra": "^5.0.0",
     "gitignore-parser": "0.0.2",
-    "homey-lib": "^2.0.0",
+    "homey-lib": "2.3.24",
     "inquirer": "^5.1.0",
     "monitorctrlc": "^2.0.1",
-    "node-fetch": "^2.0.0",
+    "node-fetch": "^2.1.1",
+    "npm-programmatic": "0.0.10",
+    "object-path": "^0.11.4",
+    "opn": "^5.4.0",
     "semver": "^5.5.0",
     "tar-fs": "^1.16.0",
     "tmp-promise": "^1.0.4",
@@ -42,5 +55,9 @@
     "npmPublishTagProduction": "latest",
     "npmPublishTagTesting": "beta",
     "nodeVersion": "8"
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-athom": "^1.0.0"
   }
 }

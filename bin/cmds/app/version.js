@@ -4,7 +4,8 @@ const Log = require('../../..').Log;
 const App = require('../../..').App;
 const colors = require('colors');
 
-exports.desc = 'Validate a Homey App';
+exports.desc = 'Update a Homey App\'s version';
+/*
 exports.builder = yargs => {
 	return yargs.option('level', {
 		alias: 'l',
@@ -12,16 +13,13 @@ exports.builder = yargs => {
 		type: 'string',
 	})
 }
+*/
 exports.handler = async yargs => {
-	
-//	let appPath = yargs.path || process.cwd();
 
 	try {
 		let app = new App( yargs.path );
-		await app.preprocess();
-		await app.validate({
-			level: yargs.level,
-		});
+		let version = yargs._[yargs._.length-1];
+		await app.version(version);
 	} catch( err ) {
 		console.trace(colors.red(err.message));
 	}

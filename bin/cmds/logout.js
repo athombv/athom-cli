@@ -2,14 +2,15 @@
 
 const Log = require('../..').Log;
 const AthomApi = require('../..').AthomApi;
+const colors = require('colors');
 
 exports.desc = 'Log out the current user';
 exports.handler = async yargs => {
-		
+
 	try {
-		await AthomApi.logout();				
+		await AthomApi.logout();
 	} catch( err ) {
-		Log(err);
+		Log(colors.red(err.message));
 	}
 
 }

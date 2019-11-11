@@ -1,7 +1,7 @@
 'use strict';
 
-const Log = require('../../..').Log;
-const AthomApi = require('../../..').AthomApi;
+const Log = require('../..').Log;
+const AthomApi = require('../..').AthomApi;
 const colors = require('colors');
 
 exports.desc = 'Select a Homey as active';
@@ -20,7 +20,7 @@ exports.builder = yargs => {
 }
 
 exports.handler = async ( yargs ) => {
-	
+
 	try {
 		await AthomApi.selectActiveHomey({
 			id: yargs.id,

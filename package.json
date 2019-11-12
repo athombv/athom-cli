@@ -1,6 +1,6 @@
 {
   "name": "athom-cli",
-  "version": "2.1.106",
+  "version": "3.0.0",
   "description": "Command-line interface for Homey Apps",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/athombv/node-athom-cli#readme",
   "dependencies": {
-    "athom-api": "^2.1.156",
+    "athom-api": "^3.1.1",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",
     "deepmerge": "^2.1.0",

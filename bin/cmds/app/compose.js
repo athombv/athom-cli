@@ -11,7 +11,7 @@ exports.handler = async yargs => {
 
 	try {
 		let app = new App( appPath );
-		await app.switchToCompose();
+		await app.migratoToCompose();
 	} catch( err ) {
 		Log(colors.red(err.message));
 	}

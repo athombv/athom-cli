@@ -7,10 +7,10 @@ const colors = require('colors');
 exports.desc = 'Switch Homey App structure to compose plugin';
 exports.handler = async yargs => {
 	
-	let appPath = yargs.path || process.cwd();
+	const appPath = yargs.path || process.cwd();
 
 	try {
-		let app = new App( appPath );
+		const app = new App( appPath );
 		await app.migratoToCompose();
 	} catch( err ) {
 		Log(colors.red(err.message));

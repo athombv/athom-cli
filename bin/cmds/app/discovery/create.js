@@ -7,11 +7,11 @@ const colors = require('colors');
 exports.desc = 'Create a new Discovery strategy';
 exports.handler = async yargs => {
 	
-	let appPath = yargs.path || process.cwd();
+	const appPath = yargs.path || process.cwd();
 
 	try {
-		let app = new App( appPath );
-		await app.createDiscovery();
+		const app = new App( appPath );
+		await app.createDiscoveryStrategy();
 	} catch( err ) {
 		Log(colors.red(err.message));
 	}

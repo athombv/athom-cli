@@ -17,8 +17,8 @@ exports.builder = yargs => {
 exports.handler = async yargs => {
 
 	try {
-		let app = new App( yargs.path );
-		let version = yargs._[yargs._.length-1];
+		const app = new App( yargs.path );
+		const version = yargs._[yargs._.length-1];
 		await app.version(version);
 	} catch( err ) {
 		console.trace(colors.red(err.message));

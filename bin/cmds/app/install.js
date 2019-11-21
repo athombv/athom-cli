@@ -20,10 +20,10 @@ exports.builder = yargs => {
 }
 exports.handler = async yargs => {
 
-	let appPath = yargs.path || process.cwd();
+	const appPath = yargs.path || process.cwd();
 
 	try {
-		let app = new App( appPath );
+		const app = new App( appPath );
 		await app.install({
 			clean: yargs.clean,
 			skipBuild: yargs.skipBuild,

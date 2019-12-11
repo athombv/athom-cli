@@ -9,7 +9,7 @@ exports.desc = 'Play a LED Ring animation on Homey';
 exports.handler = async yargs => {
 	
 	try {
-		let animation = new Animation( yargs.path );
+		const animation = new Animation( yargs.path );
 		await animation.run();
 	} catch( err ) {
 		Log(colors.red(err.message));

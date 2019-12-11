@@ -17,7 +17,7 @@ exports.handler = async yargs => {
 //	let appPath = yargs.path || process.cwd();
 
 	try {
-		let app = new App( yargs.path );
+		const app = new App( yargs.path );
 		await app.preprocess();
 		await app.validate({
 			level: yargs.level,

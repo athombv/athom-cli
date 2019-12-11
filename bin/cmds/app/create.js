@@ -7,7 +7,7 @@ const colors = require('colors');
 exports.desc = 'Create a new Homey App';
 exports.handler = async yargs => {
 	
-	let appPath = yargs.path || process.cwd();
+	const appPath = yargs.path || process.cwd();
 
 	try {
 		await App.create({ appPath });

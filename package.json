@@ -12,8 +12,9 @@
     "athom-cli": "bin/athom-cli-warning.js"
   },
   "engines": {
-    "node": ">=8.5.0"
+    "node": ">=10.10.0"
   },
+  "engineStrict": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/athombv/node-athom-cli.git"

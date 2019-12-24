@@ -6,17 +6,17 @@ const updateNotifier = require('update-notifier');
 const AthomMessage = require('..').AthomMessage;
 
 (async () => {
-	
+
 	await AthomMessage.notify();
 	updateNotifier({ pkg }).notify({
 		isGlobal: true,
 	});
-	
+
 	yargs
 		.commandDir('./cmds')
 		.demandCommand()
 		.strict()
-		.help()	
+		.help()
 		.argv;
 
 })();

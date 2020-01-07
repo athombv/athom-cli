@@ -1,6 +1,3 @@
 {
-  "extends": "athom",
-  "parserOptions": {
-    "ecmaVersion": 6
-  }
+  "extends": "athom"
 }

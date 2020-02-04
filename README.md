@@ -1,3 +1,11 @@
+# Deprecated
+
+This package is deprecated and will no longer receive new features or bug fixes. Please move to [homey](https://www.npmjs.com/package/homey) by running:
+
+```bash
+$ npm install -g homey
+```
+
 # Athom CLI
 
 This is the Command Line Interface for Homey App Development.
